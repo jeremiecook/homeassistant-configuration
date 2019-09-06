@@ -1,0 +1,11 @@
+sexy:
+  alias: Sexy
+  sequence:
+  - data:
+      entity_id: media_player.spotify
+      shuffle: 'true'
+    service: media_player.shuffle_set
+  - data:
+      media_content_id: spotify:playlist:6AfmMP0233vdNIe492RPim
+      random_song: 'yes'
+    service: spotify.play_playlist

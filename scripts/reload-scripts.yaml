@@ -1,0 +1,4 @@
+reload:
+    alias: Reload scripts
+    sequence:
+    - service: script.reload

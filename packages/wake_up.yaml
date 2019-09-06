@@ -1,0 +1,45 @@
+
+sensor:
+- platform: time_date
+  display_options:
+      - 'time'
+
+
+#  Champ de saisie de l'heure de reveil       
+input_datetime:
+    alarm_time:
+        name: Horaire de réveil
+        has_date: false
+        has_time: true
+        icon: mdi:alarm
+
+#input_boolean:
+    #alarm_status:
+        #initial: on
+
+group:
+    wake_up:
+        name: Réveil ☀️
+        entities:
+        - input_datetime.alarm_time
+        - automation.reveil_musical  
+        - automation.reveil_lumineux
+          #- input_boolean.alarm_status
+
+automation:
+
+- alias: Réveil musical
+  trigger:
+      platform: template
+      value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+      service: script.spotifyalarm
+
+- alias: Réveil lumineux
+  trigger:
+      platform: template
+      value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+      service: script.morninglight
+
+

@@ -1,0 +1,71 @@
+spotifyalarm:
+  alias: Spotify Alarm
+  sequence:
+  - delay: 00:01:00
+  - service: switch.turn_on
+    data:
+      entity_id: switch.ampli
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.0'
+  - service: spotify.play_playlist
+    data:
+      media_content_id: spotify:playlist:5PKh6LXvxvF2860ylwdPtJ
+      random_song: 'yes'
+  - delay: 00:00:02
+  - data:
+      entity_id: media_player.spotify
+      shuffle: 'true'
+    service: media_player.shuffle_set
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.1'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.2'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.3'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.4'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.5'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.6'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.7'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.8'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '0.9'
+  - delay: 00:00:05
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.spotify
+      volume_level: '1.0'
+    service: spotify.play_playlist
