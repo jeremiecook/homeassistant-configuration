@@ -1,0 +1,12 @@
+.HA_VERSION
+secrets.yaml
+known_devices.yaml
+
+*.sqlite
+*.db
+*.log
+
+.spotify-token-cache
+
+.storage/*
+.directory

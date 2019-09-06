@@ -1,0 +1,54 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+#tts:
+#  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+api:
+
+tuya:
+    username: !secret tuya_username
+    password: !secret tuya_password
+    country_code: !secret tuya_country_code
+
+
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
+
+input_datetime:
+  alarm_time:
+    name: Horaire de réveil
+    has_date: false
+    has_time: true
+    icon: mdi:alarm
+
+input_boolean:
+  alarm_status:
+    initial: on
+
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+
+group:
+  wake_up:
+    name: Réveil ☀️
+    entities:
+      - input_datetime.alarm_time
+      - automation.reveil_musical  
+      - automation.reveil_lumineux
+      - input_boolean.alarm_status  

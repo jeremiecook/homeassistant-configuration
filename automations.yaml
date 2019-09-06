@@ -1,0 +1,13 @@
+- alias: Réveil musical
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+    service: script.spotifyalarm
+
+- alias: Réveil lumineux
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  action:
+    service: script.morninglight
