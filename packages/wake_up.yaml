@@ -23,6 +23,7 @@ group:
         - automation.reveil_lumineux
           #- input_boolean.alarm_status
 
+          
 automation:
 
 # Réveil avec une playlist

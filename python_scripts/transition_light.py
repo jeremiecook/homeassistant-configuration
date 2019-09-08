@@ -24,8 +24,8 @@ total_steps = int (duration / delay)
 step = 0
 
 while step < total_steps:
-    step = step + 1
     light_step = step / total_steps * (len(light_steps) - 1)
+    step = step + 1
 
     fromLightStep = math.floor(light_step)
     toLightStep = math.ceil(light_step)
