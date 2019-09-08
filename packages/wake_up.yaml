@@ -13,9 +13,6 @@ input_datetime:
         has_time: true
         icon: mdi:alarm
 
-#input_boolean:
-    #alarm_status:
-        #initial: on
 
 group:
     wake_up:
@@ -28,18 +25,32 @@ group:
 
 automation:
 
+# Réveil avec une playlist
 - alias: Réveil musical
   trigger:
       platform: template
       value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   action:
-      service: script.spotifyalarm
+      service: python_script.fade_in_playlist
+      data:
+        duration: 300
+        playlist: spotify:playlist:5PKh6LXvxvF2860ylwdPtJ
 
+# Réveil en lumière
 - alias: Réveil lumineux
   trigger:
       platform: template
       value_template: "{{ states('sensor.time') == (state_attr('input_datetime.alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   action:
-      service: script.morninglight
+      service: python_script.transition_light
+      data:
+        entity_id: light.chambre
+        duration: 300 # 10 mn
 
 
+homeassistant:
+    customize: 
+        automation.reveil_lumineux:
+            icon: mdi:lightbulb-on-outline
+        automation.reveil_musical:
+            icon: mdi:music

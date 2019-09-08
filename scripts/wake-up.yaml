@@ -1,5 +1,0 @@
-wakeup:
-  alias: Wake Up
-  sequence:
-  - service: script.morninglight
-  - service: script.spotifyalarm
