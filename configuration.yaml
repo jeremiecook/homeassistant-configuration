@@ -21,6 +21,9 @@ logger:
     default: warning
 
 
+shell_command:
+    screen_on: sudo sh -c "echo 150 > /sys/class/backlight/rpi_backlight/brightness"
+    screen_off: sudo sh -c "echo 0 > /sys/class/backlight/rpi_backlight/brightness"
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:

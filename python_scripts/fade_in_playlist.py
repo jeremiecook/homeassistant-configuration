@@ -1,5 +1,4 @@
 # Parameters
-entity_id = data.get('entity_id')
 duration = data.get('duration', 120) # Total duration of the transition
 delay = data.get('delay', 3) # Delay between each volume step
 playlist = data.get('playlist', 'spotify:playlist:5PKh6LXvxvF2860ylwdPtJ') # Playlist
@@ -12,7 +11,7 @@ hass.services.call('switch', 'turn_on', {'entity_id': 'switch.ampli'}, False)
 hass.services.call(
     'media_player', 'select_source', 
     {
-        'entity_id': 'switch.ampli', 
+        'entity_id': 'media_player.spotify', 
         'source': 'Michel (Pi)'  
     }, 
     False)
@@ -26,7 +25,6 @@ hass.services.call(
     }, 
     False)
 
-# Jouer la playlist
 # Jouer la playlist
 hass.services.call(
     'spotify', 'play_playlist',
