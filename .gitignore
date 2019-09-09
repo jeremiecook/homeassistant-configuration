@@ -10,3 +10,6 @@ known_devices.yaml
 
 .storage/*
 .directory
+
+.ssh
+.uuid
