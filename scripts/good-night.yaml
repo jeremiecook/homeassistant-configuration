@@ -1,0 +1,25 @@
+good_night:
+    
+    alias: Bonne nuit ! 🌙
+    sequence:
+
+    - service: switch.turn_off
+      data:
+          entity_id: group.all_switches
+
+    - service: light.turn_off
+      data:
+          entity_id: light.salon
+
+    - service: python_script.transition_light
+      data:
+          entity_id: light.chambre
+          duration: 200
+          light_steps: [
+              [64, 0, 255, 100],
+              [64, 0, 255, 0]
+          ]
+
+    - service: media_player.media_pause
+      data:
+          entity_id: media_player.spotify
