@@ -16,8 +16,8 @@ dawn_light = [
 # Parameters
 entity_id = data.get('entity_id')
 light_steps = data.get('light_steps', dawn_light) # Color steps of the transition
-duration = data.get('duration', 120) # Total duration of the transition
-delay = data.get('delay', 2) # Delay between each step, in seconds
+duration = int (data.get('duration', 120)) # Total duration of the transition
+delay = float (data.get('delay', 2)) # Delay between each step, in seconds
 
 
 total_steps = int (duration / delay)

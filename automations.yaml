@@ -1,0 +1,22 @@
+- id: '1568155981859'
+  alias: Découverte des périphériques MQTT
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      payload: '1'
+      topic: sonoffs/cmnd/SetOption19
+    service: mqtt.publish
+- id: '1568156130406'
+  alias: Synchronisation MQTT
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - data:
+      payload: ''
+      topic: sonoffs/cmnd/state
+    service: mqtt.publish

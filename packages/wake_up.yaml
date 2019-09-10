@@ -47,8 +47,19 @@ automation:
       data:
         entity_id: light.chambre
         duration: 300 # 10 mn
+        delay: .5
 
 
+# Allumer l'écran au lever du soleil
+- alias: Sunset screen 
+  trigger:
+      platform: sun
+      event: sunset
+  action:
+      service: shell.screen_on
+
+
+# Icônes spécifiques
 homeassistant:
     customize: 
         automation.reveil_lumineux:

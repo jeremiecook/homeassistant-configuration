@@ -22,8 +22,8 @@ logger:
 
 
 shell_command:
-    screen_on: sudo sh -c "echo 150 > /sys/class/backlight/rpi_backlight/brightness"
-    screen_off: sudo sh -c "echo 0 > /sys/class/backlight/rpi_backlight/brightness"
+    screen_on: ssh -t pi@192.168.0.24 'sudo sh -c "echo 150 > /sys/class/backlight/rpi_backlight/brightness"'
+    screen_off: ssh -t pi@192.168.0.24 'sudo sh -c "echo 0 > /sys/class/backlight/rpi_backlight/brightness"'
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
@@ -43,15 +43,11 @@ homeassistant:
 
 python_script:
 
-
+mqtt:
+    broker: !secret pi_ip
+    discovery: true
 
 api:
-
-tuya:
-    username: !secret tuya_username
-    password: !secret tuya_password
-    country_code: !secret tuya_country_code
-
 
 media_player:
   - platform: spotify

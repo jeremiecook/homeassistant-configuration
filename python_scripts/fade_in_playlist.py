@@ -5,7 +5,7 @@ playlist = data.get('playlist', 'spotify:playlist:5PKh6LXvxvF2860ylwdPtJ') # Pla
 
 
 # Allumer l'ampli
-hass.services.call('switch', 'turn_on', {'entity_id': 'switch.ampli'}, False)
+hass.services.call('switch', 'turn_on', {'entity_id': 'switch.music'}, False)
 
 # Se connecter sur Spotify
 hass.services.call(

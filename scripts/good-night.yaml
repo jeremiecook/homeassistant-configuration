@@ -1,5 +1,5 @@
 good_night:
-    
+
     alias: Bonne nuit ! 🌙
     sequence:
 
@@ -23,3 +23,5 @@ good_night:
     - service: media_player.media_pause
       data:
           entity_id: media_player.spotify
+
+    - service: shell_command.screen_off
