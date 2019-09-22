@@ -1,5 +1,5 @@
 sexy:
-  alias: Sexy
+  alias: Playlist
   sequence:
   - data:
       entity_id: media_player.spotify

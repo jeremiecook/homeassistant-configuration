@@ -48,15 +48,16 @@ while step <= total_steps:
     color_data = {
         'entity_id': entity_id,
         'rgb_color': rgb,
-    }
-
-    brightness_data = {
-        'entity_id': entity_id,
         'brightness_pct': brightness_pct
     }
 
+    #brightness_data = {
+    #    'entity_id': entity_id,
+    #    'brightness_pct': brightness_pct
+    #}
+
     logger.warning('Changed light ' + str(entity_id) + ' : Color ' + str(rgb) + ' - Brightness ' + str(brightness_pct))
     hass.services.call('light', 'turn_on', color_data, False)
-    hass.services.call('light', 'turn_on', brightness_data, False)
+    #hass.services.call('light', 'turn_on', brightness_data, False)
     time.sleep(delay)
 

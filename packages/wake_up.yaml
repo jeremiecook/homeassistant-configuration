@@ -51,12 +51,12 @@ automation:
 
 
 # Allumer l'écran au lever du soleil
-- alias: Sunset screen 
+- alias: Show screen on sunrise 
   trigger:
       platform: sun
-      event: sunset
+      event: sunrise
   action:
-      service: shell.screen_on
+      service: shell_command.screen_on
 
 
 # Icônes spécifiques

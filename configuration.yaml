@@ -2,7 +2,6 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #default_config:
  
-
 config:
 frontend:
 history:
@@ -24,8 +23,10 @@ logger:
 shell_command:
     screen_on: ssh -t pi@192.168.0.24 'sudo sh -c "echo 150 > /sys/class/backlight/rpi_backlight/brightness"'
     screen_off: ssh -t pi@192.168.0.24 'sudo sh -c "echo 0 > /sys/class/backlight/rpi_backlight/brightness"'
+    lights_off: ssh -t pi@192.168.0.24 'sudo sh -c "/home/pi/HomeAssistant/shell_scripts/lights_off"'
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+
+    # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 # http:
 #   base_url: example.duckdns.org:8123
 

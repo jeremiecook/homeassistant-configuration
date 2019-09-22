@@ -1,0 +1,3 @@
+sudo sh -c 'echo 0 > /sys/class/leds/led0/brightness' #act
+sudo sh -c 'echo 0 > /sys/class/leds/led1/brightness' #power
+python lights.py
