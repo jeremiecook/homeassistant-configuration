@@ -23,7 +23,7 @@ delay = float (data.get('delay', 2)) # Delay between each step, in seconds
 total_steps = int (duration / delay)
 step = 0
 
-while step < total_steps:
+while step <= total_steps:
     light_step = step / total_steps * (len(light_steps) - 1)
     step = step + 1
 
@@ -55,7 +55,7 @@ while step < total_steps:
         'brightness_pct': brightness_pct
     }
 
-    logger.info('Changed light ' + str(entity_id) + ' : Color ' + str(rgb) + ' - Brightness ' + str(brightness_pct))
+    logger.warning('Changed light ' + str(entity_id) + ' : Color ' + str(rgb) + ' - Brightness ' + str(brightness_pct))
     hass.services.call('light', 'turn_on', color_data, False)
     hass.services.call('light', 'turn_on', brightness_data, False)
     time.sleep(delay)

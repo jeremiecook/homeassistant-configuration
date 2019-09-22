@@ -16,6 +16,8 @@ hass.services.call(
     }, 
     False)
 
+time.sleep(1)
+
 # Baisser le volume
 hass.services.call(
     'media_player', 'volume_set', 
